@@ -1,21 +1,57 @@
 <!DOCTYPE html>
+
 <head>
-<script src="./main.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" type="module" defer></script>
+    <!--<script src="./view.js" type="module" defer></script>-->
+    <!--<script src="./login_section.js" type="module" defer></script>-->
+    <!--<script src="./main_section.js" type="module" defer></script>-->
+    <script src="./init.js" type="module" defer></script>
 </head>
+
 <body>
-<h1>Add a new muscle group</h1>
-<input type="text" id="newMuscleGroup">
-<button id="addNewMuscleGroup" onclick="addNewMuscleGroup()">Add Musclegroup</button>
+    <div id="navbar">
+        <button onclick="logout()">Logout</button>
+    </div>
+    <div id="login_section" style="display: none;">
+        <h1>
+            Login!
+        </h1>
+        <label for="email">Email: </label>
+        <input type="text" id="email"><br>
+        <label for="password">Password: </label>
+        <input type="password" id="password"><br>
+        <label for="url">URL: </label>
+        <input type="text" id="url"><br>
+        <label for="public_anon_token">Public anon token: </label>
+        <input type="text" id="public_anon_token"><br>
+        <button onclick="get_credentials()">Login</button>
+    </div>
+    <div id="main_section" style="display: none;">
+        <h1>Go work out!</h1>
 
-<br>
+        <p>
+        <h2>Enter workout</h2>
+        <select id="musclegroups_dropdown">
+        </select>
+        <br>
+        <textarea id="workout_description"></textarea>
+        <br>
+        <button id="submit_workout" onclick="submit_workout()">Submit workout</button>
+        </p>
 
-<h1>Enter a workout</h1>
-<input type="text" id="selectedMuscleGroup"><br>
-<textarea id="workoutState"></textarea>
-<button id="saveWorkoutState" onclick="saveWorkout()">Save workout</button>
+        <p>
+        <h2>Enter a new musclegroup</h2>
+        <label>Musclegroup: </label>
+        <input type="text" id="new_musclegroup"><br>
+        <label>Description: </label>
+        <input type="text" id="new_musclegroup_description"><br>
+        <button onclick="enter_new_musclegroup()">Submit</button>
+        </p>
 
-<br>
-
-<div id="lastWorkouts">
-</div>
+        <p>
+        <h2>History</h2>
+        <div id="last_workouts">
+        </div>
+        </p>
+    </div>
 </body>
