@@ -88,6 +88,7 @@ async function submit_workout() {
         console.log("Success!")
     }
 
+    init_main_section();
 }
 
 async function get_last_workouts(muscle_groups) {
